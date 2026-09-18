@@ -1,7 +1,8 @@
 import os
 
-src_dir = 'c:/creddemo/frontend'
-dist_dir = 'c:/creddemo/frontend/dist'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+src_dir = os.path.join(base_dir, 'frontend')
+dist_dir = os.path.join(src_dir, 'dist')
 
 if not os.path.exists(dist_dir):
     os.makedirs(dist_dir)
