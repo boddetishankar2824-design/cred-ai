@@ -26,3 +26,24 @@ class LoanEligibilityResponse(BaseModel):
     estimated_emi: float
     interest_rate: float
     recommendation: str
+
+# --- Redis Queue Feature Schemas ---
+class AsyncLoanApplicationRequest(BaseModel):
+    applicant_name: str
+    monthly_income: float
+    requested_amount: float
+    credit_score: int = 750
+    bank_statement_filename: Optional[str] = "statement_october.pdf"
+
+class AsyncLoanJobResponse(BaseModel):
+    job_id: str
+    status: str
+    created_at: str
+    estimated_wait_seconds: int = 5
+    message: str
+
+class LoanJobStatusResponse(BaseModel):
+    job_id: str
+    status: str
+    progress_percentage: int
+    result: Optional[dict] = None

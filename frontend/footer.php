@@ -77,8 +77,8 @@
             reader.onload = async function () {
                 const base64String = reader.result.split(',')[1];
                 
-                // Send to FastAPI/Mock Server
-                const response = await fetch('http://localhost:8001/api/upload', {
+                // Send to FastAPI Backend
+                const response = await fetch('/api/upload', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ filename: file.name, content: base64String })
@@ -143,7 +143,7 @@
 
         try {
             // Call FastAPI Backend
-            const response = await fetch('http://localhost:8001/api/chat', {
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: msgText, history: [] })
@@ -179,7 +179,7 @@
             document.getElementById(loadingId).remove();
             const errHtml = `
                 <div class="sa-msg sa-msg-ai" style="color: red;">
-                    Error connecting to FastAPI backend. Is it running on port 8001?
+                    Error connecting to FastAPI backend. Please check server connection.
                     <span class="sa-msg-time">${timeStr}</span>
                 </div>
             `;
