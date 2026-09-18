@@ -1,84 +1,79 @@
 <?php include 'header.php'; ?>
 
-<main class="main-content" style="max-width: 800px;">
+<main style="padding: 2rem;">
     
-    <div class="chat-container">
-        <div class="chat-header">
-            <i class="fa-solid fa-robot" style="font-size: 1.5rem;"></i>
-            <div>
-                <h3 style="color: var(--cb-white); margin: 0; font-size: 1.1rem;">Financial Assistant</h3>
-                <span style="font-size: 0.8rem; color: #a1bde0;">Online</span>
-            </div>
-        </div>
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 2.5rem; color: var(--cb-navy);">Financial Support & AI Concierge</h1>
+        <p style="color: var(--cb-text-muted);">Personalized AI assistance for your financial decisions — without compromising accuracy.</p>
+    </div>
 
-        <div class="chat-messages" id="chat-messages">
-            <div class="message message-ai">
-                Hello! I am your AI Financial Assistant. How can I help you today? You can ask me about your expenses, uploaded invoices, or general financial advice.
-            </div>
+    <div class="flowchart-container">
+        
+        <div class="flowchart-grid">
             
-            <!-- Example user message for styling -->
-            <div class="message message-user">
-                Can you summarize my spending for last month?
+            <!-- Left Column (User) -->
+            <div class="flow-column" style="align-items: flex-end;">
+                <span style="font-size: 0.7rem; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">YOU</span>
+                <div class="flow-node node-user">
+                    I need a personal loan with the lowest interest rate.
+                </div>
             </div>
 
-            <!-- Example AI message for styling -->
-            <div class="message message-ai">
-                Based on your uploaded documents, you spent a total of $1,250 last month. The largest category was "Dining out" at $400.
+            <!-- Horizontal Line 1 -->
+            <div class="flow-line"></div>
+
+            <!-- Middle Column (AI Agent / System) -->
+            <div class="flow-column flow-column-center">
+                <div class="flow-node node-ai">
+                    <span class="node-label center"><i class="fa-solid fa-robot"></i> AI AGENT</span>
+                    <strong>Based on your profile, here are top matches:</strong>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 15px; background: #f8fafc; padding: 10px; border-radius: 8px;">
+                        <i class="fa-solid fa-building-columns" style="font-size: 1.5rem; color: var(--cb-blue);"></i>
+                        <div>
+                            <div style="font-weight: 600;">HDFC Bank</div>
+                            <div style="font-size: 0.8rem; color: var(--cb-text-muted);">10.5% p.a. • Pre-approved</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px; background: #f8fafc; padding: 10px; border-radius: 8px;">
+                        <i class="fa-solid fa-building-columns" style="font-size: 1.5rem; color: var(--cb-success);"></i>
+                        <div>
+                            <div style="font-weight: 600;">SBI</div>
+                            <div style="font-size: 0.8rem; color: var(--cb-text-muted);">10.2% p.a. • Processing fee applies</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Horizontal Line 2 -->
+            <div class="flow-line"></div>
+
+            <!-- Right Column (Follow up / Resolution) -->
+            <div class="flow-column">
+                <span style="font-size: 0.7rem; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">RESOLUTION</span>
+                <div class="flow-node node-user" style="background: #e2e8f0; color: var(--cb-text-main);">
+                    Applying for HDFC Pre-approved...
+                </div>
+                
+                <div class="flow-node node-ai">
+                    <span class="node-label center"><i class="fa-solid fa-check-circle" style="color: var(--cb-success);"></i> SYSTEM</span>
+                    Application initiated successfully.
+                </div>
+            </div>
+
         </div>
 
-        <div class="chat-input-area">
-            <input type="text" class="form-control" placeholder="Ask a financial question..." id="chat-input">
-            <button class="btn btn-primary chat-btn" id="send-btn">
-                <i class="fa-solid fa-paper-plane"></i>
-            </button>
+        <!-- Chat Input floating at bottom -->
+        <div class="chat-input-wrapper">
+            <input type="text" placeholder="Type your financial question here...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
         </div>
+
     </div>
 
 </main>
 
-<script>
-    // Placeholder script to show simple UI interaction
-    document.getElementById('send-btn').addEventListener('click', function() {
-        const input = document.getElementById('chat-input');
-        const msg = input.value.trim();
-        if(msg) {
-            const chatMessages = document.getElementById('chat-messages');
-            
-            // Add user message
-            const userDiv = document.createElement('div');
-            userDiv.className = 'message message-user';
-            userDiv.textContent = msg;
-            chatMessages.appendChild(userDiv);
-            
-            input.value = '';
-            
-            // Scroll to bottom
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // Simulate AI typing delay
-            setTimeout(() => {
-                const aiDiv = document.createElement('div');
-                aiDiv.className = 'message message-ai';
-                aiDiv.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Thinking...';
-                chatMessages.appendChild(aiDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-
-                // Simulate response after 1 second
-                setTimeout(() => {
-                    aiDiv.innerHTML = 'This is a placeholder response from the PHP frontend. Eventually, this will connect to your Python FastAPI backend!';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1500);
-
-            }, 500);
-        }
-    });
-
-    document.getElementById('chat-input').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            document.getElementById('send-btn').click();
-        }
-    });
-</script>
+<a href="#" class="floating-agent-btn" onclick="toggleAssistant(event)">
+    <div class="agent-avatar"><i class="fa-solid fa-robot"></i></div>
+</a>
 
 <?php include 'footer.php'; ?>

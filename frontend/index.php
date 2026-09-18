@@ -1,36 +1,68 @@
 <?php include 'header.php'; ?>
 
-<main class="main-content">
-    <h1 style="margin-bottom: 0.5rem;">Welcome to Your Financial Assistant</h1>
-    <p style="color: var(--cb-text-muted); margin-bottom: 2rem;">Get intelligent insights into your finances using AI.</p>
+<main class="hero-section">
+    <div class="hero-pill">
+        Empowering Smarter Borrowing
+    </div>
+    
+    <h1 class="hero-title">Your Smart Borrowing Partner<br>- CredBuddha</h1>
+    <p class="hero-subtitle">A trusted partner for smarter financial decisions, offering clarity, support, and tools to move ahead. Begin your journey toward confident financial progress today.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+    <!-- Decorative Elements -->
+    <i class="fa-solid fa-signature deco-doodle"></i>
+    <i class="fa-solid fa-sparkles deco-star"></i>
+    
+    <div class="hero-graphics">
+        <div class="bg-gradient-circle"></div>
         
-        <div class="card">
-            <h2 class="card-title"><i class="fa-solid fa-robot"></i> AI Chatbot</h2>
-            <p style="margin-bottom: 1.5rem; color: var(--cb-text-muted);">Ask questions about your finances, analyze spending patterns, and get personalized advice from our advanced AI.</p>
-            <a href="chat.php" class="btn btn-primary">Start Chatting</a>
+        <div class="deco-sunburst">
+            <i class="fa-solid fa-arrow-pointer deco-cursor"></i>
         </div>
 
-        <div class="card">
-            <h2 class="card-title"><i class="fa-solid fa-file-invoice"></i> Document Vault</h2>
-            <p style="margin-bottom: 1.5rem; color: var(--cb-text-muted);">Upload invoices, bank statements, and receipts. Our AI will automatically extract and understand the data.</p>
-            <a href="upload.php" class="btn btn-outline">Upload Documents</a>
-        </div>
-
-        <div class="card">
-            <h2 class="card-title"><i class="fa-solid fa-chart-pie"></i> Quick Stats</h2>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--cb-border);">
-                <span>Documents Processed</span>
-                <span style="font-weight: 700; color: var(--cb-blue);">0</span>
+        <div class="floating-card-left">
+            <h4 style="color: #cbd5e1;"><i class="fa-solid fa-sack-dollar" style="color: #fbbf24;"></i> Find Your Ideal Loan Match</h4>
+            <h3>20+ Verified Lending Partners</h3>
+            
+            <div class="check-item">
+                <i class="fa-solid fa-circle-check"></i> Free Credit Score Access
             </div>
-            <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem;">
-                <span>AI Queries This Month</span>
-                <span style="font-weight: 700; color: var(--cb-blue);">0</span>
+            <div class="check-item">
+                <i class="fa-solid fa-circle-check"></i> No Application Fee
+            </div>
+            <div class="check-item">
+                <i class="fa-solid fa-circle-check"></i> Smart Rate Comparison
             </div>
         </div>
 
+        <!-- Phone Mockup Container -->
+        <div class="phone-mockup">
+            <!-- Simulating UI inside phone -->
+            <div style="padding: 1rem; color: white;">
+                <p style="font-size: 0.8rem; margin-bottom: 2rem;">Hi, User!</p>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 8px; color: black; margin-bottom: 1rem;">
+                    <h5 style="color: var(--cb-blue);">Your Pre-Approved Offers</h5>
+                    <p style="font-size: 0.6rem; color: #666;">Empowering financial decisions</p>
+                </div>
+                
+                <p style="font-size: 0.7rem;">Our Products</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                    <div style="background: white; border-radius: 6px; padding: 10px; text-align: center; color: black;">
+                        <i class="fa-solid fa-money-bills" style="color: #fbbf24;"></i>
+                        <div style="font-size: 0.6rem; margin-top: 5px;">Personal Loan</div>
+                    </div>
+                    <div style="background: white; border-radius: 6px; padding: 10px; text-align: center; color: black;">
+                        <i class="fa-solid fa-building" style="color: #6366f1;"></i>
+                        <div style="font-size: 0.6rem; margin-top: 5px;">Business Loan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
+
+<a href="#" class="floating-agent-btn" onclick="toggleAssistant(event)">
+    <div class="agent-avatar"><i class="fa-solid fa-robot"></i></div>
+</a>
 
 <?php include 'footer.php'; ?>
