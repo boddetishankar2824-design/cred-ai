@@ -4,7 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 
 from router.loan import router as loan_router
-from app.api import chat
+from app.api import chat, loan_calculator
+
 
 app = FastAPI(
     title="CRED AI Financial Assistant API",
@@ -23,6 +24,7 @@ app.add_middleware(
 # Include API routers
 app.include_router(loan_router)
 app.include_router(chat.router, prefix="/api", tags=["Chat"])
+app.include_router(loan_calculator.router, prefix="/api", tags=["Loan Calculator"])
 
 # Mount static frontend directory if it exists
 frontend_dist = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend", "dist")
